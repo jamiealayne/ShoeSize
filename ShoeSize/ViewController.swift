@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
 	
-	@IBOutlet var shoeSizeField: UITextField!
-	@IBOutlet var shoeSizeLabel: UILabel!
+	@IBOutlet var mensShoeSizeField: UITextField!
+	@IBOutlet var mensShoeSizeLabel: UILabel!
+	@IBOutlet var womensShoeSizeField: UITextField!
+	@IBOutlet var womensShoeSizeLabel: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,13 +26,23 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-	@IBAction func convertSize(sender: AnyObject) {
-		let shoeSize = shoeSizeField.text.toInt()
+	@IBAction func convertMensSize(sender: AnyObject) {
+		let shoeSize = mensShoeSizeField.text.toInt()
 		let conversionConstant = 30
 		var euroSize = shoeSize! + conversionConstant
 		
-		shoeSizeLabel.hidden = false
-		shoeSizeLabel.text = "Men's shoe size in Europe: \(euroSize)"
+		mensShoeSizeLabel.hidden = false
+		mensShoeSizeLabel.text = "Men's shoe size in Europe: \(euroSize)"
+		
+	}
+	
+	@IBAction func convertWomensSize(sender: AnyObject) {
+		let shoeSize = (womensShoeSizeField.text as NSString).doubleValue
+		let conversionConstant = 30.5
+		var euroSize = shoeSize + conversionConstant
+		
+		womensShoeSizeLabel.hidden = false
+		womensShoeSizeLabel.text = "Women's shoe size in Europe: \(euroSize)"
 		
 	}
 
